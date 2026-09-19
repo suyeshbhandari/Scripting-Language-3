@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+<form id="regForm">
+Name: <input type="text" id="name"><span id="nameErr"></span><br>
+Address: <input type="text" id="address"><span id="addressErr"></span><br>
+Username: <input type="text" id="username"><span id="usernameErr"></span><br>
+Email: <input type="text" id="email"><span id="emailErr"></span><br>
+Password: <input type="password" id="password"><span id="passwordErr"></span><br>
+Website: <input type="text" id="website"><br>
+Phone: <input type="text" id="phone"><span id="phoneErr"></span><br>
+Gender: <input type="radio" name="gender" value="male">Male
+<input type="radio" name="gender" value="female">Female<span id="genderErr"></span><br>
+Course:
+<select id="course">
+<option value="">Select</option>
+<option value="bca">BCA</option>
+<option value="bit">BIT</option>
+</select><span id="courseErr"></span><br>
+<button type="submit">Register</button>
+</form>
+
+<script>
+$("#regForm").submit(function(e){
+    e.preventDefault();
+    let valid = true;
+
+    $("#nameErr, #usernameErr, #phoneErr, #genderErr, #addressErr, #emailErr, #passwordErr, #courseErr").text("");
+
+    let name = $("#name").val();
+    if (name === "" || /\d/.test(name)) {
+        $("#nameErr").text("Invalid name");
+        valid = false;
+    }
+
+    let username = $("#username").val();
+    if (username === "" || /[^a-zA-Z0-9_]/.test(username)) {
+        $("#usernameErr").text("Invalid username");
+        valid = false;
+    }
+
+    let phone = $("#phone").val();
+    if (phone === "" || !/^(98|97|96)\d*$/.test(phone) || /[^0-9]/.test(phone)) {
+        $("#phoneErr").text("Invalid phone");
+        valid = false;
+    }
+
+    if (!$("input[name=gender]:checked").val()) {
+        $("#genderErr").text("Select gender");
+        valid = false;
+    }
+
+    if ($("#address").val() === "") {
+        $("#addressErr").text("Address required");
+        valid = false;
+    }
+
+    let email = $("#email").val();
+    if (email === "" || email.indexOf("@") === -1) {
+        $("#emailErr").text("Invalid email");
+        valid = false;
+    }
+
+    let password = $("#password").val();
+    let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+    if (password === "" || !passRegex.test(password)) {
+        $("#passwordErr").text("Weak password");
+        valid = false;
+    }
+
+    if ($("#course").val() === "") {
+        $("#courseErr").text("Select a course");
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Registration successful!");
+    }
+});
+</script>
+
+</body>
+</html>
