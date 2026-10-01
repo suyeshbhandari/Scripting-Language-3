@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/2/2e/Inception_%282010%29_theatrical_poster.jpg",
+    "year": 2010,
+    "genre": "Sci-Fi",
+    "rating": 8.8,
+    "director": "Christopher Nolan",
+    "country": "USA",
+    "language": "English",
+    "actors": "Leonardo DiCaprio, Joseph Gordon-Levitt"
+  },
+  {
+    "id": 2,
+    "title": "Parasite",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png",
+    "year": 2019,
+    "genre": "Thriller",
+    "rating": 8.5,
+    "director": "Bong Joon-ho",
+    "country": "South Korea",
+    "language": "Korean",
+    "actors": "Song Kang-ho, Lee Sun-kyun"
+  }
+
+]

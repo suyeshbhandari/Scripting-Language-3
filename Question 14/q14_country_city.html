@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Country:
+<select id="country" onchange="loadCities()">
+<option value="">Select</option>
+<option value="nepal">Nepal</option>
+<option value="india">India</option>
+<option value="usa">USA</option>
+</select>
+
+City:
+<select id="city"></select>
+
+<script>
+var cities = {
+    nepal: ["Kathmandu", "Pokhara", "Lalitpur"],
+    india: ["Delhi", "Mumbai", "Bangalore"],
+    usa: ["New York", "Los Angeles", "Chicago"]
+};
+
+function loadCities() {
+    var country = document.getElementById("country").value;
+    var citySelect = document.getElementById("city");
+    citySelect.innerHTML = "";
+
+    if (cities[country]) {
+        cities[country].forEach(function(city) {
+            var option = document.createElement("option");
+            option.text = city;
+            citySelect.add(option);
+        });
+    }
+}
+</script>
+
+</body>
+</html>

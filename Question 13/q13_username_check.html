@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Username: <input type="text" id="username" onkeyup="checkUsername()">
+<p id="result"></p>
+
+<script>
+function checkUsername() {
+    var username = document.getElementById("username").value;
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("result").innerText = xhr.responseText;
+        }
+    };
+    xhr.open("GET", "q13_check_username.php?username=" + username, true);
+    xhr.send();
+}
+</script>
+
+</body>
+</html>
